@@ -1,0 +1,29 @@
+services:
+  clientsapi:
+    build:
+      context: .
+      dockerfile: ClientsApi/Dockerfile
+    ports:
+      - "5001:8080"
+    environment:
+      - ConnectionStrings__ClientsDb=Server=host.docker.internal;Database=ClientsDb;User Id=sa;Password=sa;TrustServerCertificate=True;
+    networks:
+      - default-network
+
+  accountsapi:
+    build:
+      context: .
+      dockerfile: AccountsApi/Dockerfile
+    ports:
+      - "5002:8080"
+    environment:
+      - ConnectionStrings__AccountsDb=Server=host.docker.internal;Database=AccountsDb;User Id=sa;Password=sa;TrustServerCertificate=True;
+      - ClientsApi__BaseUrl=http://clientsapi:8080
+    depends_on:
+      - clientsapi
+    networks:
+      - default-network
+
+networks:
+  default-network:
+    driver: bridge
