@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "5c078adb-daca-4137-b72f-e92a49975abe",
+		"name": "Reto .NET Banco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30070603"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get all clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ClientsHost}}/clients",
+							"host": [
+								"{{ClientsHost}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ClientsHost}}/clients/1",
+							"host": [
+								"{{ClientsHost}}"
+							],
+							"path": [
+								"clients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Jhon Doe\",\r\n  \"gender\": 1,\r\n  \"age\": 22,\r\n  \"identification\": \"9001\",\r\n  \"address\": \"Calle de prueba\",\r\n  \"phoneNumber\": \"963963963\",\r\n  \"password\": \"1235\",\r\n  \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ClientsHost}}/clients",
+							"host": [
+								"{{ClientsHost}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Jhon Doe\",\r\n    \"gender\": 1,\r\n    \"age\": 22,\r\n    \"identification\": \"9001\",\r\n    \"address\": \"Calle de prueba editado\",\r\n    \"phoneNumber\": \"963963963\",\r\n    \"password\": \"1235\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ClientsHost}}/clients/1",
+							"host": [
+								"{{ClientsHost}}"
+							],
+							"path": [
+								"clients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ClientsHost}}/clients/2",
+							"host": [
+								"{{ClientsHost}}"
+							],
+							"path": [
+								"clients",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get all accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/accounts",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/accounts/0001",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"accounts",
+								"0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"0001\",\r\n    \"type\": 2,\r\n    \"balance\": 200,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AccountsHost}}/accounts",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"0002\",\r\n    \"type\": 1,\r\n    \"status\": true,\r\n    \"clientId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AccountsHost}}/accounts/0002",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"accounts",
+								"0002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/accounts/0002",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"accounts",
+								"0002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movements",
+			"item": [
+				{
+					"name": "Get all movements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/movements",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"movements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a movements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/movements/1",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"movements",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create movements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"0001\",\r\n    \"amount\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AccountsHost}}/movements",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"movements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"amount\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AccountsHost}}/movements/1",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"movements",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a account Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/movements/2",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"movements",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AccountsHost}}/reports?clientId=1&startDate=2024-12-16&endDate=2024-12-16",
+							"host": [
+								"{{AccountsHost}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-12-16"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-12-16"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
