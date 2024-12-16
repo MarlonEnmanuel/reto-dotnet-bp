@@ -61,7 +61,7 @@ namespace AccountsApi.Tests
             _context.Accounts.Add(new() { Number = "001", Type = AccountType.Checking, Balance = 100, Status = true, ClientId = 1 });
             _context.SaveChanges();
 
-            var response = await _client.GetAsync("/cuentas/001");
+            var response = await _client.GetAsync("/accounts/001");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var accountDto = await response.Content.ReadFromJsonAsync<AccountDto?>();
@@ -85,7 +85,7 @@ namespace AccountsApi.Tests
                 ClientId = 1
             };
 
-            var response = await _client.PostAsJsonAsync("/cuentas", createAccountDto);
+            var response = await _client.PostAsJsonAsync("/accounts", createAccountDto);
             response.StatusCode.Should().Be(HttpStatusCode.Created);
 
             var accountDto = await response.Content.ReadFromJsonAsync<AccountDto?>();
@@ -114,7 +114,7 @@ namespace AccountsApi.Tests
                 ClientId = 1
             };
 
-            var response = await _client.PostAsJsonAsync("/cuentas", createAccountDto);
+            var response = await _client.PostAsJsonAsync("/accounts", createAccountDto);
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var result = await response.Content.ReadFromJsonAsync<ErrorResponse?>();

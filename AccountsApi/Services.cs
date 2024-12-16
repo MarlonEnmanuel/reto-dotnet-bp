@@ -1,7 +1,7 @@
-﻿using AccountsApi.Application;
-using AccountsApi.Application.Dtos;
+﻿using AccountsApi.Application.Dtos;
 using AccountsApi.Application.Interfaces;
 using AccountsApi.Application.Services;
+using AccountsApi.Application.Validators;
 using AccountsApi.Domain;
 using AccountsApi.Domain.Validators;
 using AccountsApi.Infrastructure.Interfaces;

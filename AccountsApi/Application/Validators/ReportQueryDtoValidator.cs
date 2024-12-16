@@ -1,7 +1,7 @@
 ﻿using AccountsApi.Application.Dtos;
 using FluentValidation;
 
-namespace AccountsApi.Application
+namespace AccountsApi.Application.Validators
 {
     public class ReportQueryDtoValidator : AbstractValidator<GenerateReportDto>
     {

@@ -2,11 +2,23 @@ using ClientsApi;
 using ClientsApi.Infrastructure.Controllers;
 using ClientsApi.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddEnvironmentVariables();
+
+// Configure logging
+var logFilePath = builder.Configuration.GetValue<string>("Logging:LogFilePath") ??
+    throw new InvalidOperationException("Log file path not found");
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Configure Swagger
 builder.Services.AddEndpointsApiExplorer();
